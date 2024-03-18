@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="9.10.000" expanded="true" height="68" name="Retrieve greenhouse_gas_inventory_data_data" width="90" x="45" y="238">
+        <parameter key="repository_entry" value="//Temporary Repository/greenhouse_gas_inventory_data_data"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.10.000" expanded="true" height="82" name="Select Attributes (3)" width="90" x="45" y="340">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="value|year|country_or_area"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.10.000" expanded="true" height="68" name="Retrieve sea_levels_2015_spilt_date" width="90" x="45" y="136">
+        <parameter key="repository_entry" value="//Temporary Repository/sea_levels_2015_spilt_date"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.10.000" expanded="true" height="82" name="Select Attributes (2)" width="90" x="179" y="136">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="GMSL|Month|Year"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.10.000" expanded="true" height="103" name="Filter Examples (2)" width="90" x="313" y="136">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="Year.ge.1990"/>
+          <parameter key="filters_entry_key" value="Year.le.2012"/>
+          <parameter key="filters_entry_key" value="Month.eq.6"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.10.000" expanded="true" height="82" name="Select Attributes (4)" width="90" x="447" y="136">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Year|GMSL"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.10.000" expanded="true" height="103" name="Filter Examples (6)" width="90" x="179" y="238">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="year.ge.1990"/>
+          <parameter key="filters_entry_key" value="year.le.2012"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.10.000" expanded="true" height="103" name="Filter Examples (3)" width="90" x="313" y="238">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="country_or_area.equals.Australia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Austria"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Belarus"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Belgium"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Bulgaria"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Canada"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Croatia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Cyprus"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Czech Republic"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Denmark"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Estonia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Finland"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.France"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Germany"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Greece"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Hungary"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Iceland"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Ireland"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Italy"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Japan"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Latvia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Lithuania"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Luxembourg"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Monaco"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Netherlands"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.New Zealand"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Norway"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Poland"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Portugal"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Romania"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Slovakia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Slovenia"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Spain"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Sweden"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Switzerland"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Turkey"/>
+          <parameter key="filters_entry_key" value="country_or_area.equals.Ukraine"/>
+        </list>
+        <parameter key="filters_logic_and" value="false"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.10.000" expanded="true" height="68" name="Retrieve Country_Year_Month_001" width="90" x="45" y="34">
+        <parameter key="repository_entry" value="//Temporary Repository/Country_Year_Month_001"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.10.000" expanded="true" height="82" name="Select Attributes" width="90" x="179" y="34">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="AverageTemperature|Country|Month|year"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.10.000" expanded="true" height="103" name="Filter Examples (5)" width="90" x="313" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="year.ge.1990"/>
+          <parameter key="filters_entry_key" value="year.le.2012"/>
+          <parameter key="filters_entry_key" value="Month.eq.6"/>
+        </list>
+        <parameter key="filters_logic_and" value="true"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="filter_examples" compatibility="9.10.000" expanded="true" height="103" name="Filter Examples (4)" width="90" x="447" y="34">
+        <parameter key="parameter_expression" value=""/>
+        <parameter key="condition_class" value="custom_filters"/>
+        <parameter key="invert_filter" value="false"/>
+        <list key="filters_list">
+          <parameter key="filters_entry_key" value="Country.equals.Australia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Austria"/>
+          <parameter key="filters_entry_key" value="Country.equals.Belarus"/>
+          <parameter key="filters_entry_key" value="Country.equals.Belgium"/>
+          <parameter key="filters_entry_key" value="Country.equals.Bulgaria"/>
+          <parameter key="filters_entry_key" value="Country.equals.Canada"/>
+          <parameter key="filters_entry_key" value="Country.equals.Croatia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Cyprus"/>
+          <parameter key="filters_entry_key" value="Country.equals.Czech Republic"/>
+          <parameter key="filters_entry_key" value="Country.equals.Denmark"/>
+          <parameter key="filters_entry_key" value="Country.equals.Estonia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Finland"/>
+          <parameter key="filters_entry_key" value="Country.equals.France"/>
+          <parameter key="filters_entry_key" value="Country.equals.Germany"/>
+          <parameter key="filters_entry_key" value="Country.equals.Greece"/>
+          <parameter key="filters_entry_key" value="Country.equals.Hungary"/>
+          <parameter key="filters_entry_key" value="Country.equals.Iceland"/>
+          <parameter key="filters_entry_key" value="Country.equals.Ireland"/>
+          <parameter key="filters_entry_key" value="Country.equals.Italy"/>
+          <parameter key="filters_entry_key" value="Country.equals.Japan"/>
+          <parameter key="filters_entry_key" value="Country.equals.Latvia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Lithuania"/>
+          <parameter key="filters_entry_key" value="Country.equals.Luxembourg"/>
+          <parameter key="filters_entry_key" value="Country.equals.Monaco"/>
+          <parameter key="filters_entry_key" value="Country.equals.Netherlands"/>
+          <parameter key="filters_entry_key" value="Country.equals.New Zealand"/>
+          <parameter key="filters_entry_key" value="Country.equals.Norway"/>
+          <parameter key="filters_entry_key" value="Country.equals.Poland"/>
+          <parameter key="filters_entry_key" value="Country.equals.Portugal"/>
+          <parameter key="filters_entry_key" value="Country.equals.Romania"/>
+          <parameter key="filters_entry_key" value="Country.equals.Slovakia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Slovenia"/>
+          <parameter key="filters_entry_key" value="Country.equals.Spain"/>
+          <parameter key="filters_entry_key" value="Country.equals.Sweden"/>
+          <parameter key="filters_entry_key" value="Country.equals.Switzerland"/>
+          <parameter key="filters_entry_key" value="Country.equals.Turkey"/>
+          <parameter key="filters_entry_key" value="Country.equals.Ukraine"/>
+        </list>
+        <parameter key="filters_logic_and" value="false"/>
+        <parameter key="filters_check_metadata" value="true"/>
+      </operator>
+      <operator activated="true" class="filter_example_range" compatibility="9.10.000" expanded="true" height="82" name="Filter Example Range" width="90" x="447" y="238">
+        <parameter key="first_example" value="1"/>
+        <parameter key="last_example" value="851"/>
+        <parameter key="invert_filter" value="false"/>
+      </operator>
+      <operator activated="true" class="blending:rename" compatibility="9.10.000" expanded="true" height="82" name="Rename (2)" width="90" x="447" y="340">
+        <list key="rename attributes">
+          <parameter key="country_or_area" value="Country"/>
+        </list>
+        <parameter key="from_attribute" value=""/>
+        <parameter key="to_attribute" value=""/>
+      </operator>
+      <operator activated="true" class="blending:sort" compatibility="9.10.000" expanded="true" height="82" name="Sort (2)" width="90" x="581" y="238">
+        <list key="sort_by">
+          <parameter key="year" value="ascending"/>
+          <parameter key="Country" value="ascending"/>
+        </list>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.10.000" expanded="true" height="82" name="Write CSV" width="90" x="715" y="238">
+        <parameter key="csv_file" value="/Users/mioz/Desktop/t1.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="blending:sort" compatibility="9.10.000" expanded="true" height="82" name="Sort" width="90" x="581" y="34">
+        <list key="sort_by">
+          <parameter key="year" value="ascending"/>
+          <parameter key="Country" value="ascending"/>
+        </list>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.10.000" expanded="true" height="82" name="Write CSV (2)" width="90" x="715" y="34">
+        <parameter key="csv_file" value="/Users/mioz/Desktop/t2.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.10.000" expanded="true" height="82" name="Write CSV (3)" width="90" x="715" y="136">
+        <parameter key="csv_file" value="/Users/mioz/Desktop/t3.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="9.10.000" expanded="true" height="68" name="Retrieve Finallllllllllll_l" width="90" x="45" y="442">
+        <parameter key="repository_entry" value="//Temporary Repository/Finallllllllllll_l"/>
+      </operator>
+      <operator activated="true" class="blending:sort" compatibility="9.10.000" expanded="true" height="82" name="Sort (3)" width="90" x="581" y="442">
+        <list key="sort_by">
+          <parameter key="Country" value="ascending"/>
+        </list>
+      </operator>
+      <operator activated="true" class="write_csv" compatibility="9.10.000" expanded="true" height="82" name="Write CSV (4)" width="90" x="715" y="442">
+        <parameter key="csv_file" value="/Users/mioz/Desktop/t4.csv"/>
+        <parameter key="column_separator" value=";"/>
+        <parameter key="write_attribute_names" value="true"/>
+        <parameter key="quote_nominal_values" value="true"/>
+        <parameter key="format_date_attributes" value="true"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="append_to_file" value="false"/>
+        <parameter key="encoding" value="SYSTEM"/>
+      </operator>
+      <connect from_op="Retrieve greenhouse_gas_inventory_data_data" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Filter Examples (6)" to_port="example set input"/>
+      <connect from_op="Retrieve sea_levels_2015_spilt_date" from_port="output" to_op="Select Attributes (2)" to_port="example set input"/>
+      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Filter Examples (2)" to_port="example set input"/>
+      <connect from_op="Filter Examples (2)" from_port="example set output" to_op="Select Attributes (4)" to_port="example set input"/>
+      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Write CSV (3)" to_port="input"/>
+      <connect from_op="Filter Examples (6)" from_port="example set output" to_op="Filter Examples (3)" to_port="example set input"/>
+      <connect from_op="Filter Examples (3)" from_port="example set output" to_op="Filter Example Range" to_port="example set input"/>
+      <connect from_op="Retrieve Country_Year_Month_001" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Filter Examples (5)" to_port="example set input"/>
+      <connect from_op="Filter Examples (5)" from_port="example set output" to_op="Filter Examples (4)" to_port="example set input"/>
+      <connect from_op="Filter Examples (4)" from_port="example set output" to_op="Sort" to_port="example set input"/>
+      <connect from_op="Filter Example Range" from_port="example set output" to_op="Rename (2)" to_port="example set input"/>
+      <connect from_op="Rename (2)" from_port="example set output" to_op="Sort (2)" to_port="example set input"/>
+      <connect from_op="Sort (2)" from_port="example set output" to_op="Write CSV" to_port="input"/>
+      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
+      <connect from_op="Sort" from_port="example set output" to_op="Write CSV (2)" to_port="input"/>
+      <connect from_op="Write CSV (2)" from_port="through" to_port="result 2"/>
+      <connect from_op="Write CSV (3)" from_port="through" to_port="result 3"/>
+      <connect from_op="Retrieve Finallllllllllll_l" from_port="output" to_op="Sort (3)" to_port="example set input"/>
+      <connect from_op="Sort (3)" from_port="example set output" to_op="Write CSV (4)" to_port="input"/>
+      <connect from_op="Write CSV (4)" from_port="through" to_port="result 4"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+    </process>
+  </operator>
+</process>
